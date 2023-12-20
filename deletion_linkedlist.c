@@ -1,5 +1,18 @@
 #include<stdio.h>
-#include<stdlib.h>  
+#include<stdlib.h>
+struct node {
+    int data;
+    struct node *next;
+};
+
+void traverselist(struct node *temp) {  
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
 int main() {
     struct node *head = NULL;
     struct node *newNode = NULL;
@@ -35,26 +48,6 @@ int main() {
     scanf("%d", &pos);
 
    
-    if (pos == 1) {
-        temp = head;
-        head = head->next;
-        free(temp);
-    } else {
-        temp = head;
-        i = 1;
-        while (temp != NULL && i < pos - 1) {
-            temp = temp->next;
-            i++;
-        }
-
-        struct node *nextNode = temp->next->next;
-        free(temp->next);
-        temp->next = nextNode;
-    }
-
-    traverselist(head);
-
-
     temp = head;
     while (temp != NULL) {
         struct node *nextNode = temp->next;
@@ -64,4 +57,3 @@ int main() {
 
     return 0;
 }
-
