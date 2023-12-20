@@ -1,13 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>  
-    printf("The elements of the linked list: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
 int main() {
     struct node *head = NULL;
     struct node *newNode = NULL;
