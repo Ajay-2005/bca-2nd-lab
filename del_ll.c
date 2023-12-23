@@ -24,7 +24,7 @@ void removeNode(struct node **head, int pos) {
     struct node *temp = *head;
     struct node *prev = NULL;
 
-    
+
     if (pos == 1) {
         *head = temp->next;
         free(temp);
@@ -37,7 +37,7 @@ void removeNode(struct node **head, int pos) {
         temp = temp->next;
     }
 
-    
+
     prev->next = temp->next;
     free(temp);
 }
