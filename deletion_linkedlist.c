@@ -1,11 +1,45 @@
 #include<stdio.h>
-#include<stdlib.h>  
-    printf("The elements of the linked list: ");
+#include<stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+void traverselist(struct node *temp) {
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->next;
     }
     printf("\n");
+}
+
+void removeNode(struct node **head, int pos) {
+	int i;
+    if (*head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    struct node *temp = *head;
+    struct node *prev = NULL;
+
+    
+    if (pos == 1) {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+
+
+    for (i = 1; i < pos && temp != NULL; i++) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    
+    prev->next = temp->next;
+    free(temp);
 }
 
 int main() {
@@ -36,39 +70,15 @@ int main() {
             temp = newNode;
         }
     }
-
+	printf("The element of linked list");
     traverselist(head);
 
     printf("Enter position of data to remove: ");
     scanf("%d", &pos);
 
-   
-    if (pos == 1) {
-        temp = head;
-        head = head->next;
-        free(temp);
-    } else {
-        temp = head;
-        i = 1;
-        while (temp != NULL && i < pos - 1) {
-            temp = temp->next;
-            i++;
-        }
-
-        struct node *nextNode = temp->next->next;
-        free(temp->next);
-        temp->next = nextNode;
-    }
-
+    removeNode(&head, pos);
+	printf("The element of linked list after deleting");
     traverselist(head);
-
-
-    temp = head;
-    while (temp != NULL) {
-        struct node *nextNode = temp->next;
-        free(temp);
-        temp = nextNode;
-    }
 
     return 0;
 }
