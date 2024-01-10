@@ -8,7 +8,7 @@ void swap(int *x, int *y) {
 }
 
 int main() {
-    int arr[10], limit, i, j;
+    int arr[10], limit, i, j,int min;
 
     printf("Enter the limit of array:\n");
     scanf("%d", &limit);
@@ -19,11 +19,14 @@ int main() {
     }
 
     for(i = 0; i < limit; i++) {
+        min=i;
         for(j = i + 1; j < limit; j++) {
-            if(arr[j] < arr[i]) {
-                swap(&arr[j], &arr[i]);
+            if(arr[j] < arr[min]) {
+                min=j;
+               
             }
         }
+        swap(&arr[min],&arr[i]);
     }
 
     printf("Sorted array:\n");
