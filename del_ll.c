@@ -16,14 +16,16 @@ void traverselist(struct node *temp) {
 
 void removeNode(struct node **head, int pos) {
 	int i;
+
+    struct node *temp = *head;
+    struct node *prev = NULL;
+
     if (*head == NULL) {
         printf("List is empty.\n");
         return;
     }
 
-    struct node *temp = *head;
-    struct node *prev = NULL;
-
+    
 
     if (pos == 1) {
         *head = temp->next;

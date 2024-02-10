@@ -16,6 +16,6 @@ int main() {
         start++;
         end--;
     }
-    printf("Reverse string is %s",str);
+    printf("Reverse of a string is %s",str);
     return 0;
 }
