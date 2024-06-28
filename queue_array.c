@@ -32,7 +32,7 @@ void dequeue(){
 void display(){
     int i;
     printf("Elements of the queue:\n");
-    for(i=0;i<rear+1;i++){
+    for(i=front;i<=rear;i++){
         printf("%d\n",queue[i]);
 
     }
